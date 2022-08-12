@@ -18,3 +18,11 @@ h1 {
 h1 #resultsPage {
   font-style: italic;
 }
+
+main {
+  border: solid 2px red;
+}
+
+#landingHeader {
+  color: white;
+}
