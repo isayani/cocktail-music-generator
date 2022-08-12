@@ -1,0 +1,20 @@
+:root {
+  --background: #083637;
+  --card-container: #f4f4f0;
+  --red-button: #f42204;
+  --mix-match-button: #cf7651;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--card-container);
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 50px;
+}
+
+h1 #resultsPage {
+  font-style: italic;
+}
