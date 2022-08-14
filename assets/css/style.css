@@ -19,8 +19,8 @@ h1 #resultsPage {
   font-style: italic;
 }
 
-main {
-  border: solid 2px red;
+.mmbutton {
+  background-color: var(--mix-match-button);
 }
 
 #landingHeader {
