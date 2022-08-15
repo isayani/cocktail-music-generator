@@ -31,3 +31,7 @@ body div p {
 .cream {
     background-color: var(--card-container);
 }
+
+button:hover {
+    background-color: var(--mix-match-button);
+}
