@@ -1,9 +1,26 @@
+:root {
+  --background: #083637;
+  --card-container: #f4f4f0;
+  --red-button: #f42204;
+  --mix-match-button: #cf7651;
+}
+
 body {
-    background-color: #083637;
+  background-color: var(--background);
+  color: var(--card-container);
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 50px;
+}
+
+h1 #resultsPage {
+  font-style: italic;
 }
 
 body div button {
-    background-color: #083637;
+    background-color: var(--background);
     margin-top: .5rem;
 }
 
@@ -12,6 +29,5 @@ body div p {
 }
 
 .cream {
-    background-color: #F4F4F0;
+    background-color: var(--card-container);
 }
-
