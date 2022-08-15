@@ -1,0 +1,17 @@
+body {
+    background-color: #083637;
+}
+
+body div button {
+    background-color: #083637;
+    margin-top: .5rem;
+}
+
+body div p {
+    text-align: center;
+}
+
+.cream {
+    background-color: #F4F4F0;
+}
+
