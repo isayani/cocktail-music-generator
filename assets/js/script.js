@@ -1,5 +1,5 @@
-var cocktailEl = document.getElementById("cocktailContent")
-var submitEl = document.getElementById("submit")
+var cocktailEl = document.getElementById("cocktailId") // cocktail element to insert content (search.html)
+var submitEl = document.getElementById("submit")  // submit button (index.html)
 
 // Cocktail DB API Request please do not share API key!!
 const options = {
@@ -10,15 +10,10 @@ const options = {
 	}
 };
 
-
 // lookup drink names by alcohol type, select randomly 
 // https://rapidapi.com/thecocktaildb/api/the-cocktail-db/
-function search_drink() {
-    var alcohol_type_input = document.getElementById("userInput");
-    if (!alcohol_type_input) {
-        var alcohol_type_input = 'vodka'; // hardwire vodka if no input
-    }
-    fetch('https://the-cocktail-db.p.rapidapi.com/filter.php?i=' + alcohol_type_input, options)
+function search_drink(alcohol_type) {
+    fetch('https://the-cocktail-db.p.rapidapi.com/filter.php?i=' + alcohol_type, options)
         .then(response => response.json())
         .then(function (response) {
             console.log(response)
@@ -48,26 +43,92 @@ function search_drink() {
                 .then(function(response){
                     var drink_details = response.drinks[0];
                     console.log(drink_details);
-                    var list = Object.entries(drink_details)  //convert object to array of keys 
-                    list.forEach(([key, value]) => {
-                        // add name and image to cocktailEl
-                        if (value!==null) {
-                            var drinkDetailEl = document.createElement("p")
-                            drinkDetailEl.textContent = key + ': ' + value
-                            cocktailEl.appendChild(drinkDetailEl)                        
+
+                    var drinkDetailLi = document.createElement("ul")
+
+                    var drinkDetailEl = document.createElement("li")
+                    drinkDetailEl.textContent = "Category: " + drink_details.strCategory
+                    drinkDetailLi.appendChild(drinkDetailEl)  
+
+                    var drinkDetailEl = document.createElement("li")
+                    drinkDetailEl.textContent = "Instructions: " + drink_details.strInstructions
+                    drinkDetailLi.appendChild(drinkDetailEl)  
+
+                    for (var i = 1; i < 13; i ++){
+                        var ingredient = "strIngredient" + i
+                        var measure = "strMeasure" + i
+                        if (drink_details[ingredient] !== null){
+                            var drinkDetailEl = document.createElement("li")
+                            drinkDetailEl.textContent = drink_details[ingredient] + ", " + drink_details[measure]
+                            drinkDetailLi.appendChild(drinkDetailEl)  
                         }
-                        })
+                    }
+
+                    cocktailEl.appendChild(drinkDetailLi)
+                    // legacy code, dumping all object parameters into html. leaving for debugging purposes
+                    // var list = Object.entries(drink_details)  //convert object to array of keys 
+                    // list.forEach(([key, value]) => {
+                    //     // add name and image to cocktailEl
+                    //     if (value!==null) {
+                    //         var drinkDetailEl = document.createElement("p")
+                    //         drinkDetailEl.textContent = value
+                    //         cocktailEl.appendChild(drinkDetailEl)                        
+                    //     }
+                    //     })
                     })
                 .catch(err => console.error(err));
                 })
         .catch(err => console.error(err));    
 }
 
+// get youtube video id to insert into html embed
+function search_music(keywords) {
+    var api_key_yt = "AIzaSyAjjB7-4pZIVOCDy1P9f8sdttsjhlsAP-k"
+    var search_params = keywords  // pass keywords as string
+    var url_yt = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${search_params}&type=video&videoEmbeddable=true&videoSyndicated=true&key=${api_key_yt}`
+    fetch(url_yt)
+        .then(response => response.json())
+        .then((data) => {
+            var rand = Math.floor(Math.random() * 4);
+            var videoId = data.items[rand].id.videoId
+            var iframeYT = document.getElementById("iframeYT")
+            iframeSrc = "https://www.youtube.com/embed/" + videoId
+            iframeYT.setAttribute('src', iframeSrc)
+        })    
+}
 
-// listen for button click, grab input, fetch cocktail, add to HTML
-submitEl.addEventListener("click", search_drink)
-// search_drink()
+// lookup genre based on alcohol type
+var keywordLookup = {
+    "vodka": "chill",
+    "whiskey": "country",
+    "wine": "classy",
+    "rum": "reggae",
+    "absinthe": "psychadelic rock",
+    "mead": "folk",
+    "cider": "americana",
+    "sake": "japanese funk",
+    "gin": "pop",
+    "brandy": "1980's",
+    "tequila": "bad bunny",
+}
 
 
+// listen for button click, execute functions
+submitEl.addEventListener("click", function() {
+    // get alcohol type from index.html
+    var alcohol_type_input = document.getElementById("userInput");
+
+    // lookup genre from object based on alcohol type
+    var genre = keywordLookup[alcohol_type_input]
+
+    // execute functions to fetch data and insert into results.html
+    // todo confirm if window.location.replace is required to switch html
+    window.location.replace("./results.html")
+    search_drink(alcohol_type_input)
+    search_music(genre + " music video")
+})
 
 
+// run functions manually for debugging
+// search_drink("gin")
+// search_music("whiskey" + " music video")
