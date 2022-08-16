@@ -18,3 +18,20 @@ h1 {
 h1 #resultsPage {
   font-style: italic;
 }
+
+body div button {
+    background-color: var(--background);
+    margin-top: .5rem;
+}
+
+body div p {
+    text-align: center;
+}
+
+.cream {
+    background-color: var(--card-container);
+}
+
+button:hover {
+    background-color: var(--mix-match-button);
+}
