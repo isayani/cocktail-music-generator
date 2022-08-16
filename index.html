@@ -6,18 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mix & Match: Cocktail and Music Generator</title>
     <link rel="stylesheet" href="./assets/css/reset.css" />
-    <link href="https://unpkg.com/@material-tailwind/html@latest/styles/material-tailwind.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 
 <body>
-    <main class="md:container md:mx-auto h-screen text-center w-1/2">
-        <div class="w-1/2 p-2 m-80 space-y-4">
+    <main class="md:container md:mx-auto h-screen w-screen text-center flex justify-center content-center items-center">
+        <div class="p-2 space-y-4 w-1/2">
             <h1 id="landingHeader" class="italic text-white font-bold text-5xl text-center">Mix & Match</h1>
-            <p class="text-xl italic">Let us decide the details of your evening, so you can relax. Click below for a streamlined recommendation of unique cocktail recipe and music video to match. Enjoy effortlessly, and drink responsibly.  </p>
+            <p class="text-white text-xl italic">Let us decide the details of your evening, so you can relax. Click below for a streamlined recommendation of unique cocktail recipe and music video to match. Enjoy effortlessly, and drink responsibly.  </p>
 
             <!-- Button trigger modal -->
-            <button class="mmbutton 
+            <button class="mmbutton
+            text-white
             rounded-none 
             shadow-md 
             hover:bg-orange-700 hover:shadow-lg 
@@ -36,13 +39,21 @@
                      class="modal-content border-none shadow-lg relative flex flex-col w-full pointer-events-auto bg-white bg-clip-padding rounded-md outline-none text-current">
                       <div
                             class="modal-header flex flex-shrink-0 items-center justify-between p-4 border-b border-gray-200 rounded-t-md">
-                            <h5 class="text-xl font-medium leading-normal text-gray-800" id="ageModalLabel">Modal title</h5>
+                            <h5 class="text-xl font-medium leading-normal text-gray-800" id="ageModalLabel">You must be 21+ to enter</h5>
                             <button type="button"
                             class="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
                             data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body relative p-4">
-                            Modal body text goes here.
+                            <!-- Date picker -->
+                            <div class="flex items-center justify-center">
+                                <div class="datepicker relative form-floating mb-3 xl:w-96" data-mdb-toggle-button="false">
+                                  <input type="text"
+                                    class="form-control block w-full px-3 py-1.5 text-base font-normal text-black-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                                    placeholder="Select a date" data-mdb-toggle="datepicker" />
+                                  <label for="floatingInput" class="text-gray-700">Select a date</label>
+                                </div>
+                              </div>
                         </div>
                         <div
                             class="modal-footer flex flex-shrink-0 flex-wrap items-center justify-end p-4 border-t border-gray-200 rounded-b-md">
@@ -99,4 +110,5 @@
 
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
 </html>
