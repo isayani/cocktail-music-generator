@@ -22,22 +22,41 @@
       >
         <h1 class="text-center italic text-6xl" id="resultsBanner">
           Alcohol & Music
+          <!-- change with js based on search results-->
         </h1>
       </div>
     </header>
 
     <main class="container px-6">
       <div class="flex flex-col md:flex-row">
-        <div class="bg-black px-3 md:w-1/2" id="imgCard">
+        <!-- responsive card arrangement-->
+        <div class="bg-black my-1 px-3 md:w-1/2" id="imgCard">
           <h2 class="h-20">image card</h2>
+          <!-- cocktail image-->
         </div>
-        <div class="bg-red-500 px-3 md:w-1/2" id="cocktailId">
+        <div class="bg-red-700 my-1 px-3 md:w-1/2" id="cocktailId">
           <h2 class="h-20">cocktailID card</h2>
+          <!-- cocktail name w/ ingredients added by js -->
         </div>
       </div>
 
-      <div class="iframe">YouTube</div>
+      <div class="iframe h-20 bg-gray-700 my-1 py-2">YouTube</div>
+
+      <button
+        class="flex bg-red-400 my-2 py-2 px-2 w-full text-xl rounded"
+        id="newSearch"
+      >
+        Match me a new mix!
+      </button>
     </main>
+
+    <div class="text-center text-xl">
+      <br />
+      <h4 class="underline">Recent Searches</h4>
+      <div class="container flex flex-wrap">
+        <h4 class="italics">previous searches from local storage</h4>
+      </div>
+    </div>
 
     <!--    <div id="cocktailId">Cocktail Id</div>-->
 
