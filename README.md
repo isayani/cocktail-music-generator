@@ -33,7 +33,7 @@ You and your group will use everything you’ve learned over the past six module
 - Have a quality README (with unique name, description, technologies used, screenshot, and link to deployed application).
 
 ## Wireframe 
-[Mix & Match Wireframe](./assets/images/Mix%20%26%20Match.png)
+![Mix & Match Wireframe](./assets/images/Mix%20%26%20Match.png)
 
 ## Presentation Requirements
 
