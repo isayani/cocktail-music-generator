@@ -7,7 +7,7 @@
 
 body {
   background-color: var(--background);
-  color: var(--card-container);
+  /* color: var(--card-container); */
 }
 
 h1 {
@@ -19,6 +19,14 @@ h1 #resultsPage {
   font-style: italic;
 }
 
+.mmbutton {
+  background-color: var(--mix-match-button);
+}
+
+#landingHeader {
+  color: white;
+}
+
 div button {
     background-color: var(--background);
 }
@@ -27,8 +35,8 @@ button:hover {
   background-color: var(--mix-match-button);
 }
 
-
 .cream {
     background-color: var(--card-container);
 }
+
 
