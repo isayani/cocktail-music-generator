@@ -16,7 +16,7 @@
     <title>Mix Result</title>
   </head>
   <body>
-    <header class="flex items-center justify-center p-12 py-6">
+    <header class="flex flex-col items-center justify-center p-12 py-6">
       <div
         class="flex flex-col items-center shadow-md md:flex-row md:max-w-xl dark:border-gray-700 dark:bg-gray-800"
       >
@@ -27,7 +27,7 @@
       </div>
     </header>
 
-    <main class="container px-6">
+    <main class="container flex flex-col justify-center px-6">
       <div class="flex flex-col md:flex-row">
         <!-- responsive card arrangement-->
         <div class="bg-black my-1 px-3 md:w-1/2" id="imgCard">
@@ -40,21 +40,34 @@
         </div>
       </div>
 
-      <div class="iframe h-20 bg-gray-700 my-1 py-2">YouTube</div>
+      <!-- youtube video inserted by js-->
+      <iframe
+        id="iframeYT"
+        width="560"
+        height="315"
+        src=""
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </main>
 
+    <!-- new search button -->
+    <div class="flex flex-row justify-center content-center mt-5">
       <button
-        class="flex bg-red-400 my-2 py-2 px-2 w-full text-xl rounded"
+        class="bg-red-400 mmbutton text-white py-2 px-4 rounded max-w-1/2 text-center"
         id="newSearch"
       >
         Match me a new mix!
       </button>
-    </main>
+    </div>
 
-    <div class="text-center text-xl">
+    <div class="flex flex-col items-center text-xl">
       <br />
       <h4 class="underline">Recent Searches</h4>
       <div class="container flex flex-wrap">
-        <h4 class="italics">previous searches from local storage</h4>
+        <h4 class="italic p-4">previous searches from local storage</h4>
       </div>
     </div>
 
