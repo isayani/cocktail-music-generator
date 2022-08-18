@@ -34,3 +34,17 @@ h1 #resultsPage {
 #landingHeader {
   color: white;
 }
+
+div button {
+    background-color: var(--background);
+}
+
+button:hover {
+  background-color: var(--mix-match-button);
+}
+
+.cream {
+    background-color: var(--card-container);
+}
+
+

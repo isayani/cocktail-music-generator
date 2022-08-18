@@ -4,30 +4,79 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- links-->
+    <!-- links -->
+    <link rel="stylesheet" type="text/css" href="./assets/css/reset.css" />
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
     <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-      crossorigin="anonymous"
-    />
-    <link rel=“stylesheet” href=“https://rsms.me/inter/inter.css”>
-    <link
-      href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Aboreto&family=Lora&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/assets/css/reset.css" />
-    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
+
     <title>Mix Result</title>
   </head>
   <body>
-    <header><h1 id="resultsPage">Whiskey & Country</h1></header>
-    <main><h2>main</h2></main>
-    <div id="cocktailId">Cocktail Id</div>
+    <header class="flex flex-col items-center justify-center p-12 py-6">
+      <div
+        class="flex flex-col items-center shadow-md md:flex-row md:max-w-xl dark:border-gray-700 dark:bg-gray-800"
+      >
+        <h1 class="text-center italic text-6xl" id="resultsBanner">
+          Alcohol & Music
+          <!-- change with js based on search results-->
+        </h1>
+      </div>
+    </header>
 
-    <script src=“https://cdn.tailwindcss.com”></script>
+    <main class="container flex flex-col justify-center px-6">
+      <div class="flex flex-col md:flex-row">
+        <!-- responsive card arrangement-->
+        <div class="bg-black my-1 px-3 md:w-1/2" id="imgCard">
+          <h2 class="h-20">image card</h2>
+          <!-- cocktail image-->
+        </div>
+        <div class="bg-red-700 my-1 px-3 md:w-1/2" id="cocktailId">
+          <h2 class="h-20">cocktailID card</h2>
+          <!-- cocktail name w/ ingredients added by js -->
+        </div>
+      </div>
+
+      <!-- youtube video inserted by js-->
+      <iframe
+        id="iframeYT"
+        width="560"
+        height="315"
+        src=""
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </main>
+
+    <!-- new search button -->
+    <div class="flex flex-row justify-center content-center mt-5">
+      <button
+        class="bg-red-400 mmbutton text-white py-2 px-4 rounded max-w-1/2 text-center"
+        id="newSearch"
+      >
+        Match me a new mix!
+      </button>
+    </div>
+
+    <div class="flex flex-col items-center text-xl">
+      <br />
+      <h4 class="underline">Recent Searches</h4>
+      <div class="container flex flex-wrap">
+        <h4 class="italic p-4">previous searches from local storage</h4>
+      </div>
+    </div>
+
+    <!--    <div id="cocktailId">Cocktail Id</div>-->
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-    <script src="/assets/script.js"></script>
+    <script src="/assets/js/script.js"></script>
   </body>
 </html>
