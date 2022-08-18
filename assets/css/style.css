@@ -23,6 +23,14 @@ h1 #resultsPage {
   background-color: var(--mix-match-button);
 }
 
+.datepicker-header, .datepicker-cell.selected .datepicker-cell-content  {
+  background-color: var(--mix-match-button);
+}
+
+.datepicker-footer-btn {
+  color: var(--mix-match-button);
+}
+
 #landingHeader {
   color: white;
 }
