@@ -2,7 +2,11 @@
 
 ## Concept
 
+- **Description of application**
+
 ## User experience
+
+- **What is the user story? What was the motivation for development?**
 
 ## Task
 
@@ -20,7 +24,9 @@ Present project to instructional staff and fellow students.
 
 Third-party server-side API calls.
 
-Moment.js time functions
+Uses modal to prompt user input
+
+Interactive with user input
 
 Tailwindcss framework
 
@@ -29,6 +35,10 @@ Dynamic DOM manipulation
 Set and get localStorage
 
 Responsive design
+
+## Future development
+
+- **Directions for Future Development**
 
 ## Wireframe
 
@@ -41,6 +51,8 @@ Responsive design
 ## Link
 
 https://isayani.github.io/cocktail-music-generator/
+
+---
 
 At the conclusion of each phase of this course, you’ll work with a group of your fellow students to create a **project**. A project is collaborative work among a group of developers to create an application that solves a real-world problem. Projects model the experience you’ll encounter in every development role at any company, from large multinational businesses to small startups. Coding is collaborative.
 
