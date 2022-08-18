@@ -2,11 +2,15 @@
 
 ## Concept
 
-- **Description of application**
+- **What is the user story? What was the motivation for development?**
 
 ## User experience
 
-- **What is the user story? What was the motivation for development?**
+- The user is greeted with a landing page. They then click the "Match My Mix" button to get started.
+
+- A modal appears, asking the user to verify their age. Once that is complete, the user can select a type of alcohol. Click the 'Mix My Match" button, and see the results.
+
+- The results will include an image of the recommended drink, the recipe for creating this concoction, and a video selected as a companion to the user-selection.
 
 ## Task
 
@@ -22,19 +26,19 @@ Present project to instructional staff and fellow students.
 
 ## Technologies employed
 
-Third-party server-side API calls.
+- Third-party server-side API calls.
 
-Uses modal to prompt user input
+- Uses modal to prompt user input
 
-Interactive with user input
+- Interactive with user input
 
-Tailwindcss framework
+- Tailwindcss framework
 
-Dynamic DOM manipulation
+- Dynamic DOM manipulation
 
-Set and get localStorage
+- Set and get localStorage
 
-Responsive design
+- Responsive design
 
 ## Future development
 
