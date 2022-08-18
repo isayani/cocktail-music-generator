@@ -15,6 +15,7 @@ function search_drink(alcohol_type) {
     var cocktailImgEl = document.getElementById("imgCard") // cocktail img element to insert content (search.html)
     
     // clear content
+
     cocktailEl.innerHTML = ""
     cocktailImgEl.innerHTML = ""
 
@@ -84,8 +85,10 @@ function search_music(keywords) {
     fetch(url_yt)
         .then(response => response.json())
         .then((data) => {
+            console.log(data)
             var rand = Math.floor(Math.random() * 4);
             var videoId = data.items[rand].id.videoId
+            console.log(videoId)
 
             // must be in results page to access content elements below
             var iframeYT = document.getElementById("iframeYT")
@@ -108,8 +111,8 @@ var keywordLookup = {
 }
 
 // listen for button click, execute functions
-// 
-if (window.location.pathname === "/index.html") {
+console.log(window)
+if (window.location.pathname === "/index.html" || window.location.pathname === "/cocktail-music-generator/" ) {
     console.log("on index")
     var submitEl = document.getElementById("submit")  // submit button (index.html)
 
