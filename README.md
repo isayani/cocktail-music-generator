@@ -50,7 +50,7 @@ Present project to instructional staff and fellow students.
 
 ## Screenshot
 
-![App Screenshot]()
+![App Screenshot](./assets/images/ss1.jpg)
 
 ## Link
 
