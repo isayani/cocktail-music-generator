@@ -1,6 +1,3 @@
-var cocktailEl = document.getElementById("cocktailId") // cocktail element to insert content (search.html)
-var submitEl = document.getElementById("submit")  // submit button (index.html)
-
 // Cocktail DB API Request please do not share API key!!
 const options = {
 	method: 'GET',
@@ -13,6 +10,14 @@ const options = {
 // lookup drink names by alcohol type, select randomly 
 // https://rapidapi.com/thecocktaildb/api/the-cocktail-db/
 function search_drink(alcohol_type) {
+    // must be in results page to access content elements below
+    var cocktailEl = document.getElementById("cocktailId") // cocktail element to insert content (search.html)
+    var cocktailImgEl = document.getElementById("imgCard") // cocktail img element to insert content (search.html)
+    
+    // clear content
+    cocktailEl.innerHTML = ""
+    cocktailImgEl.innerHTML = ""
+
     fetch('https://the-cocktail-db.p.rapidapi.com/filter.php?i=' + alcohol_type, options)
         .then(response => response.json())
         .then(function (response) {
@@ -33,7 +38,7 @@ function search_drink(alcohol_type) {
 
             var drinkImageEl = document.createElement("img")
             drinkImageEl.setAttribute('src', drink_img)
-            cocktailEl.appendChild(drinkImageEl)
+            cocktailImgEl.appendChild(drinkImageEl)
             console.log(drinkImageEl)
 
 
@@ -65,16 +70,6 @@ function search_drink(alcohol_type) {
                     }
 
                     cocktailEl.appendChild(drinkDetailLi)
-                    // legacy code, dumping all object parameters into html. leaving for debugging purposes
-                    // var list = Object.entries(drink_details)  //convert object to array of keys 
-                    // list.forEach(([key, value]) => {
-                    //     // add name and image to cocktailEl
-                    //     if (value!==null) {
-                    //         var drinkDetailEl = document.createElement("p")
-                    //         drinkDetailEl.textContent = value
-                    //         cocktailEl.appendChild(drinkDetailEl)                        
-                    //     }
-                    //     })
                     })
                 .catch(err => console.error(err));
                 })
@@ -91,6 +86,8 @@ function search_music(keywords) {
         .then((data) => {
             var rand = Math.floor(Math.random() * 4);
             var videoId = data.items[rand].id.videoId
+
+            // must be in results page to access content elements below
             var iframeYT = document.getElementById("iframeYT")
             iframeSrc = "https://www.youtube.com/embed/" + videoId
             iframeYT.setAttribute('src', iframeSrc)
@@ -99,36 +96,59 @@ function search_music(keywords) {
 
 // lookup genre based on alcohol type
 var keywordLookup = {
-    "vodka": "chill",
-    "whiskey": "country",
-    "wine": "classy",
-    "rum": "reggae",
-    "absinthe": "psychadelic rock",
-    "mead": "folk",
-    "cider": "americana",
-    "sake": "japanese funk",
-    "gin": "pop",
-    "brandy": "1980's",
-    "tequila": "bad bunny",
+    "Vodka": "chill",
+    "Whiskey": "country",
+    "Wine": "classy",
+    "Rum": "reggae",
+    "Absinthe": "psychadelic rock",
+    "Mead": "folk",
+    "Cider": "americana",
+    "Gin": "pop",
+    "Tequila": "bad bunny",
 }
 
-
 // listen for button click, execute functions
-submitEl.addEventListener("click", function() {
-    // get alcohol type from index.html
-    var alcohol_type_input = document.getElementById("userInput");
+// 
+if (window.location.pathname === "/index.html") {
+    console.log("on index")
+    var submitEl = document.getElementById("submit")  // submit button (index.html)
+
+    submitEl.addEventListener("click", function() {
+        // get alcohol type from index.html
+        var alcohol_type_input = document.getElementById("userInput");
+
+        // save to local stoage
+        localStorage.setItem("session-input", alcohol_type_input.value)
+
+        // switch to results
+        window.location.assign("./results.html")
+
+    })    
+} else  {
+    console.log("on results")
+
+    // access local storage
+    var alcohol_type_input = localStorage.getItem("session-input")
+    console.log(alcohol_type_input)
+
 
     // lookup genre from object based on alcohol type
     var genre = keywordLookup[alcohol_type_input]
 
-    // execute functions to fetch data and insert into results.html
-    // todo confirm if window.location.replace is required to switch html
-    window.location.replace("./results.html")
+    // run functions on load
     search_drink(alcohol_type_input)
-    search_music(genre + " music video")
-})
+    search_music(genre + "live music video")
+    console.log(genre)
 
+    // listen for reload
+    var newSearchEl = document.getElementById("newSearch")  // submit button (index.html)
+    newSearchEl.addEventListener("click", function() {
+        // get alcohol type from index.html
+        // var alcohol_type_input = document.getElementById("userInput");
 
-// run functions manually for debugging
-// search_drink("gin")
-// search_music("whiskey" + " music video")
+        // execute functions to fetch data and insert into results.html
+        search_drink(alcohol_type_input)
+        search_music(genre + "live music video")
+    })    
+}
+
