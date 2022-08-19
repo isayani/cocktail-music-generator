@@ -99,22 +99,22 @@ function search_music(keywords) {
 
 // lookup genre based on alcohol type
 var keywordLookup = {
-    "Vodka": "chill",
-    "Whiskey": "country",
-    "Wine": "opera",
-    "Absinthe": "psychadelic rock",
-    "Gin": "the killers",
-    "Rum": "reggae",
-    "Tequila": "bad bunny",
-    "Mezcal": "oaxaca",
-    "Scotch": "scottish",
-    "Bourbon": "blues",
-    "Brandy": "looking glass"
+    "Vodka": "Chill",
+    "Whiskey": "Country",
+    "Wine": "Opera",
+    "Absinthe": "Psychadelic Rock",
+    "Gin": "The Killers",
+    "Rum": "Reggae",
+    "Tequila": "Bad Bunny",
+    "Mezcal": "Oaxaca Traditional",
+    "Scotch": "Bagpipe",
+    "Bourbon": "Blues",
+    "Brandy": "Soul"
 
 }
 
 // listen for button click, execute functions
-console.log(window)
+console.log(window.location)
 if (window.location.pathname === "/index.html" || window.location.pathname === "/cocktail-music-generator/" ) {
     console.log("on index")
     var submitEl = document.getElementById("submit")  // submit button (index.html)
@@ -141,6 +141,10 @@ if (window.location.pathname === "/index.html" || window.location.pathname === "
     // lookup genre from object based on alcohol type
     var genre = keywordLookup[alcohol_type_input]
 
+    // grab banner html and update 
+    var banner = document.getElementById("resultsBanner")
+    banner.innerHTML = `${alcohol_type_input} & ${genre}`
+
     // run functions on load
     search_drink(alcohol_type_input)
     search_music(genre + "live music")
@@ -149,12 +153,21 @@ if (window.location.pathname === "/index.html" || window.location.pathname === "
     // listen for reload
     var newSearchEl = document.getElementById("newSearch")  // submit button (index.html)
     newSearchEl.addEventListener("click", function() {
-        // get alcohol type from index.html
-        // var alcohol_type_input = document.getElementById("userInput");
-
         // execute functions to fetch data and insert into results.html
         search_drink(alcohol_type_input)
         search_music(genre + "live music")
     })    
+
+    // home button
+    var homeBtnEl = document.getElementById("homeBtn")  // submit button (index.html)
+    homeBtnEl.addEventListener("click", function() {
+        if (location.hostname === "localhost" || location.hostname === "127.0.0.1") {
+            window.location.assign("/index.html")
+          } else {
+            window.location.assign("/cocktail-music-generator/")
+
+          }
+
+    })   
 }
 
