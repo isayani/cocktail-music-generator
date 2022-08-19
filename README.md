@@ -1,4 +1,4 @@
-# 07 Project 1: Interactive Front-End Application
+# 07 Project 1: Mix & Match: Cocktail & Music Video Generator
 
 ## Concept
 
