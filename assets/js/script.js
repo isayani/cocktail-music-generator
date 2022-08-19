@@ -112,7 +112,7 @@ var keywordLookup = {
 
 // listen for button click, execute functions
 console.log(window)
-if (window.location.pathname === "/index.html" || window.location.pathname === "/" ) {
+if (window.location.pathname === "/index.html" || window.location.pathname === "/cocktail-music-generator/" ) {
     console.log("on index")
     var submitEl = document.getElementById("submit")  // submit button (index.html)
 
