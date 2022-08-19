@@ -101,13 +101,16 @@ function search_music(keywords) {
 var keywordLookup = {
     "Vodka": "chill",
     "Whiskey": "country",
-    "Wine": "classy",
-    "Rum": "reggae",
+    "Wine": "opera",
     "Absinthe": "psychadelic rock",
-    "Mead": "folk",
-    "Cider": "americana",
-    "Gin": "pop",
+    "Gin": "the killers",
+    "Rum": "reggae",
     "Tequila": "bad bunny",
+    "Mezcal": "oaxaca",
+    "Scotch": "scottish",
+    "Bourbon": "blues",
+    "Brandy": "looking glass"
+
 }
 
 // listen for button click, execute functions
@@ -140,7 +143,7 @@ if (window.location.pathname === "/index.html" || window.location.pathname === "
 
     // run functions on load
     search_drink(alcohol_type_input)
-    search_music(genre + "live music video")
+    search_music(genre + "live music")
     console.log(genre)
 
     // listen for reload
@@ -151,7 +154,7 @@ if (window.location.pathname === "/index.html" || window.location.pathname === "
 
         // execute functions to fetch data and insert into results.html
         search_drink(alcohol_type_input)
-        search_music(genre + "live music video")
+        search_music(genre + "live music")
     })    
 }
 
