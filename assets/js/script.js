@@ -102,7 +102,7 @@ var keywordLookup = {
     "Vodka": "Chill",
     "Whiskey": "Country",
     "Wine": "Opera",
-    "Absinthe": "Psychadelic Rock",
+    "Absinthe": "Psychedelic Rock",
     "Gin": "The Killers",
     "Rum": "Reggae",
     "Tequila": "Bad Bunny",
@@ -123,7 +123,7 @@ if (window.location.pathname === "/index.html" || window.location.pathname === "
         // get alcohol type from index.html
         var alcohol_type_input = document.getElementById("userInput");
 
-        // save to local stoage
+        // save to local storage
         localStorage.setItem("session-input", alcohol_type_input.value)
 
         // switch to results

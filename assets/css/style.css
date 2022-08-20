@@ -1,13 +1,12 @@
 :root {
   --background: #083637;
   --card-container: #f4f4f0;
-  --red-button: #f42204;
   --mix-match-button: #cf7651;
+  --ageModal: #D49785;
 }
 
 body {
   background-color: var(--background);
-  /* color: var(--card-container); */
 }
 
 h1 {
@@ -45,6 +44,15 @@ button:hover {
 
 .cream {
     background-color: var(--card-container);
+}
+
+@media screen and (max-width: 640px) {
+  .hide {
+    display: none;
+  }
+  .modal-header {
+    background-color: var(--ageModal);
+  }
 }
 
 
