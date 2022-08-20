@@ -113,10 +113,36 @@ var keywordLookup = {
 
 }
 
-// listen for button click, execute functions
+// listen for button click, execute which html page user is on
 console.log(window.location)
 if (window.location.pathname === "/index.html" || window.location.pathname === "/cocktail-music-generator/" ) {
     console.log("on index")
+        // Vars for moments and elements
+        var today = moment()
+        var isAfterDateString = today.subtract(21,"years").format("DD/MM/YYYY")
+        var isAfterDate = moment(isAfterDateString, "DD/MM/YYYY")
+        var mmButtonEl = document.querySelector("#mixmatch")
+        var dateInputEl = document.querySelector("#dateInput")
+
+        // Eventistener for verify age button on modal
+        mmButtonEl.addEventListener("click", function (event) {
+            var verifyBtnEl = document.querySelector("#verifyBtn")
+            event.preventDefault()
+            verifyBtnEl.addEventListener("click", function(event) {
+                event.preventDefault()
+                
+                if((isAfterDate).isSameOrAfter(moment(dateInputEl.value, "DD/MM/YYYY"))) { // "21", years
+                    var inputCardEl = document.getElementsByClassName("inputCard");
+                    console.log("legal age")
+                    // inputCardEl.classList.add("hidden");
+                } else {
+                //     ageModalEl.classList.add("hidden");
+                console.log("not legal age")
+                }    
+                
+            })
+        })
+
     var submitEl = document.getElementById("submit")  // submit button (index.html)
 
     submitEl.addEventListener("click", function() {
