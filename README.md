@@ -3,8 +3,8 @@
 ## Concept
 
 AS A user
-I WANT to a recommendation for a cocktail and curated music video
-SO THAT I can find new, exciting mixed drinks and music without requiring research
+I WANT a recommendation for a cocktail and curated music video
+SO THAT I can find new, exciting mixed drinks and music without requiring research.
 
 ## User experience
 
@@ -30,7 +30,7 @@ Present project to instructional staff and fellow students.
 
 - Third-party server-side API calls.
 
-- Uses modal to prompt user input
+- Use modal to prompt user input
 
 - Interactive with user input
 
@@ -44,7 +44,10 @@ Present project to instructional staff and fellow students.
 
 ## Future development
 
-- Search from list of previous searches
+- Enhanced API key security - Abstract details from client
+- Improved music video pairing - Better content selection
+- Adding search results and a clear results button
+- Implementing NPM connection for production
 
 ## Wireframe
 
