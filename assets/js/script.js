@@ -123,9 +123,9 @@ if (window.location.pathname === "/index.html" || window.location.pathname === "
         var isAfterDate = moment(isAfterDateString, "DD/MM/YYYY")
         var mmButtonEl = document.querySelector("#mixmatch")
         var dateInputEl = document.querySelector("#dateInput")
-        var ageModalEl = document.getElementsByClassName("ageModal")
-        var inputCardEl = document.getElementsByClassName("inputCard")
-        var alcToggleId = document.getElementById("alcToggle")
+        var ageModalEl = document.querySelector(".ageModal")
+        var inputCardEl = document.querySelector(".inputCard")
+        
 
         // Eventistener for verify age button on modal
         mmButtonEl.addEventListener("click", function (event) {
@@ -139,7 +139,6 @@ if (window.location.pathname === "/index.html" || window.location.pathname === "
                     console.log("legal age")
                     ageModalEl.setAttribute("id", "alcToggle")
                     inputCardEl.removeAttribute("id", "alcToggle")
-
                     
                 } else {
                     console.log("not legal age")
