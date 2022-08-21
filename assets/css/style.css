@@ -38,11 +38,17 @@ h1 #resultsPage {
   color: white;
 }
 
-div button {
+#imgCard {
+  border-color: var(--card-container);
+  border-width: .5rem;
+  background-color: var(--card-container);
+}
+
+div button, #verifyBtn {
     background-color: var(--background);
 }
 
-button:hover {
+button:hover , #verifyBtn:hover {
   background-color: var(--mix-match-button);
 }
 
@@ -50,12 +56,17 @@ button:hover {
     background-color: var(--card-container);
 }
 
+
 @media screen and (max-width: 640px) {
   .hide {
     display: none;
   }
   .modal-header {
     background-color: var(--ageModal);
+  }
+
+  #ageModalLabel {
+    margin-top: 0;
   }
 }
 

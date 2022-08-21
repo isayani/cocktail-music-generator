@@ -2,8 +2,8 @@
 
 ## Concept
 
-AS A user
-I WANT a recommendation for a cocktail and curated music video
+AS A user <br>
+I WANT a recommendation for a cocktail and curated music video <br>
 SO THAT I can find new, exciting mixed drinks and music without requiring research.
 
 ## User experience
@@ -34,7 +34,7 @@ Present project to instructional staff and fellow students.
 
 - Interactive with user input
 
-- Tailwindcss framework
+- Tailwind CSS framework
 
 - Dynamic DOM manipulation
 
@@ -51,12 +51,13 @@ Present project to instructional staff and fellow students.
 
 ## Wireframe
 
-![Mix & Match Wireframe](./assets/images/Mix%20%26%20Match.png)
+![Mix & Match Wireframe](./assets/images/Mix%20%26%20Match%20Wireframe.png)
 
 ## Screenshot
 
-![App Screenshot](./assets/images/ss1.jpg)
+![App gif]()
 
 ## Link
 
-https://isayani.github.io/cocktail-music-generator/
+Deployed Application: https://isayani.github.io/cocktail-music-generator/ <br>
+GitHub Repository: https://github.com/isayani/cocktail-music-generator
