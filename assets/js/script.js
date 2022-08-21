@@ -113,10 +113,53 @@ var keywordLookup = {
 
 }
 
-// listen for button click, execute functions
+// listen for button click, execute which html page user is on
 console.log(window.location)
 if (window.location.pathname === "/index.html" || window.location.pathname === "/cocktail-music-generator/" ) {
     console.log("on index")
+        // Vars for moments and elements
+        var today = moment()
+        var isAfterDateString = today.subtract(21,"years").format("DD/MM/YYYY")
+        var isAfterDate = moment(isAfterDateString, "DD/MM/YYYY")
+        var mmButtonEl = document.querySelector("#mixmatch")
+        var dateInputEl = document.querySelector("#dateInput")
+        var ageModalEl = document.querySelector(".ageModal")
+        var inputCardEl = document.querySelector(".inputCard")
+        
+
+        // Eventistener for verify age button on modal
+        mmButtonEl.addEventListener("click", function (event) {
+            var verifyBtnEl = document.querySelector("#verifyBtn")
+            event.preventDefault()
+            verifyBtnEl.addEventListener("click", function(event) {
+                event.preventDefault()
+                
+                if((isAfterDate).isSameOrAfter(moment(dateInputEl.value, "DD/MM/YYYY"))) { // "21", years
+                    
+                    console.log("legal age")
+                    ageModalEl.setAttribute("id", "alcToggle")
+                    inputCardEl.removeAttribute("id", "alcToggle")
+                    
+                } else if(isAfterDate.isBefore(moment(dateInputEl.value, "DD/MM/YYYY"))) {
+                    console.log("not legal age")
+                    ageModalEl.innerHTML = "";
+                    ageModalEl.innerHTML = `<h1
+                    id="landingHeader"
+                    class="italic text-white font-bold text-5xl text-center"
+                  >
+                    Oops!
+                  </h1>
+                  <p class="text-white text-xl italic">
+                    You aren't old enough to access this site. Visit us when you turn 21.
+                  </p>`
+                    
+                } else {
+                    document.location.reload()
+                }
+                
+            })
+        })
+
     var submitEl = document.getElementById("submit")  // submit button (index.html)
 
     submitEl.addEventListener("click", function() {
