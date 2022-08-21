@@ -123,6 +123,9 @@ if (window.location.pathname === "/index.html" || window.location.pathname === "
         var isAfterDate = moment(isAfterDateString, "DD/MM/YYYY")
         var mmButtonEl = document.querySelector("#mixmatch")
         var dateInputEl = document.querySelector("#dateInput")
+        var ageModalEl = document.getElementsByClassName("ageModal")
+        var inputCardEl = document.getElementsByClassName("inputCard")
+        var alcToggleId = document.getElementById("alcToggle")
 
         // Eventistener for verify age button on modal
         mmButtonEl.addEventListener("click", function (event) {
@@ -132,12 +135,15 @@ if (window.location.pathname === "/index.html" || window.location.pathname === "
                 event.preventDefault()
                 
                 if((isAfterDate).isSameOrAfter(moment(dateInputEl.value, "DD/MM/YYYY"))) { // "21", years
-                    var inputCardEl = document.getElementsByClassName("inputCard");
+                    
                     console.log("legal age")
-                    // inputCardEl.classList.add("hidden");
+                    ageModalEl.setAttribute("id", "alcToggle")
+                    inputCardEl.removeAttribute("id", "alcToggle")
+
+                    
                 } else {
-                //     ageModalEl.classList.add("hidden");
-                console.log("not legal age")
+                    console.log("not legal age")
+                    
                 }    
                 
             })

@@ -22,6 +22,10 @@ h1 #resultsPage {
   background-color: var(--mix-match-button);
 }
 
+#alcToggle {
+  display: none;
+}
+
 .datepicker-header, .datepicker-cell.selected .datepicker-cell-content  {
   background-color: var(--mix-match-button);
 }
