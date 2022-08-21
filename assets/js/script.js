@@ -140,10 +140,22 @@ if (window.location.pathname === "/index.html" || window.location.pathname === "
                     ageModalEl.setAttribute("id", "alcToggle")
                     inputCardEl.removeAttribute("id", "alcToggle")
                     
-                } else {
+                } else if(isAfterDate.isBefore(moment(dateInputEl.value, "DD/MM/YYYY"))) {
                     console.log("not legal age")
+                    ageModalEl.innerHTML = "";
+                    ageModalEl.innerHTML = `<h1
+                    id="landingHeader"
+                    class="italic text-white font-bold text-5xl text-center"
+                  >
+                    Oops!
+                  </h1>
+                  <p class="text-white text-xl italic">
+                    You aren't old enough to access this site. Visit us when you turn 21.
+                  </p>`
                     
-                }    
+                } else {
+                    document.location.reload()
+                }
                 
             })
         })
