@@ -33,6 +33,8 @@ function search_drink(alcohol_type) {
 
             // add name and image to cocktailEl
             var drinkNameEl = document.createElement("h2")
+
+            drinkNameEl.setAttribute('style','color: #083637; font-weight: 700; font-size: 30px; font-style: italic; margin-top: 5px; margin-bottom: 10px;')
             drinkNameEl.textContent = drink_name
             cocktailEl.appendChild(drinkNameEl)
 
@@ -52,9 +54,11 @@ function search_drink(alcohol_type) {
 
                     var drinkDetailLi = document.createElement("ul")
 
-                    var drinkDetailEl = document.createElement("li")
-                    drinkDetailEl.textContent = "Category: " + drink_details.strCategory
-                    drinkDetailLi.appendChild(drinkDetailEl)  
+                    // chose to remove "category" from displaying on results 
+                    /* var drinkDetailEl = document.createElement("li")
+                       drinkDetailEl.setAttribute('style', 'text-align: center')
+                       drinkDetailEl.textContent = "Category: " + drink_details.strCategory
+                       drinkDetailLi.appendChild(drinkDetailEl) */ 
 
                     var drinkDetailEl = document.createElement("li")
                     drinkDetailEl.textContent = "Instructions: " + drink_details.strInstructions
@@ -65,7 +69,8 @@ function search_drink(alcohol_type) {
                         var measure = "strMeasure" + i
                         if (drink_details[ingredient] !== null){
                             var drinkDetailEl = document.createElement("li")
-                            drinkDetailEl.textContent = drink_details[ingredient] + ", " + drink_details[measure]
+                            drinkDetailEl.setAttribute('style', 'font-weight: 300; margin-left: 20px; margin-top: 5px; margin-bottom: 5px;')
+                            drinkDetailEl.textContent = "• " + drink_details[ingredient] + ", " + drink_details[measure]
                             drinkDetailLi.appendChild(drinkDetailEl)  
                         }
                     }
@@ -106,11 +111,9 @@ var keywordLookup = {
     "Gin": "The Killers",
     "Rum": "Reggae",
     "Tequila": "Bad Bunny",
-    "Mezcal": "Oaxaca Traditional",
     "Scotch": "Bagpipe",
     "Bourbon": "Blues",
     "Brandy": "Soul"
-
 }
 
 // listen for button click, execute which html page user is on
@@ -127,7 +130,7 @@ if (window.location.pathname === "/index.html" || window.location.pathname === "
         var inputCardEl = document.querySelector(".inputCard")
         
 
-        // Eventistener for verify age button on modal
+        // Event listener for verify age button on modal
         mmButtonEl.addEventListener("click", function (event) {
             var verifyBtnEl = document.querySelector("#verifyBtn")
             event.preventDefault()
