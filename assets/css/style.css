@@ -38,7 +38,7 @@ h1 #resultsPage {
   color: white;
 }
 
-#imgCard {
+.border-style {
   border-color: var(--card-container);
   border-width: .5rem;
   background-color: var(--card-container);
@@ -67,6 +67,20 @@ button:hover , #verifyBtn:hover {
 
   #ageModalLabel {
     margin-top: 0;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #divider {
+    display: none;
+  }
+
+  #imgCard {
+    margin-top: 0px;
+  }
+
+  .iFrame {
+    margin-top: 20px;
   }
 }
 
