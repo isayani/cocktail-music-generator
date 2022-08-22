@@ -34,13 +34,14 @@ function search_drink(alcohol_type) {
             // add name and image to cocktailEl
             var drinkNameEl = document.createElement("h2")
 
-            drinkNameEl.setAttribute('style','color: #083637; font-weight: 700; font-size: 30px; font-style: italic; margin-top: 5px; margin-bottom: 10px;')
+            drinkNameEl.setAttribute('style','color: #083637; font-weight: 700; font-size: 30px; font-style: italic; margin-top: 20px;')
             drinkNameEl.textContent = drink_name
             cocktailEl.appendChild(drinkNameEl)
 
 
             var drinkImageEl = document.createElement("img")
             drinkImageEl.setAttribute('src', drink_img)
+            drinkImageEl.setAttribute('style', 'items-center')
             cocktailImgEl.appendChild(drinkImageEl)
             console.log(drinkImageEl)
 
@@ -53,6 +54,7 @@ function search_drink(alcohol_type) {
                     console.log(drink_details);
 
                     var drinkDetailLi = document.createElement("ul")
+                    drinkDetailLi.setAttribute('style', 'margin-bottom: 20px; margin-top: 20px')
 
                     // chose to remove "category" from displaying on results 
                     /* var drinkDetailEl = document.createElement("li")
@@ -189,6 +191,7 @@ if (window.location.pathname === "/index.html" || window.location.pathname === "
 
     // grab banner html and update 
     var banner = document.getElementById("resultsBanner")
+    banner.setAttribute('style', 'font-weight: 700')
     banner.innerHTML = `${alcohol_type_input} & ${genre}`
 
     // run functions on load
