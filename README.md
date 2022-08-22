@@ -18,9 +18,9 @@ SO THAT I can find new, exciting mixed drinks and music without requiring resear
 GIVEN I want a recommendation of cocktail and curated music video  
 WHEN I click the “Mix My Match” button
 THEN I am presented with a modal that asks me to enter my birthday
-WHEN I birthday that is not of legal age (<21)
+WHEN I enter a birthday that is not of legal age (<21)
 THEN I am displayed a message
-WHEN I enter birthday of legal age (21+)
+WHEN I enter a birthday of legal age (21+)
 THEN I am presented with an alcohol input page
 WHEN I select which alcohol type I want from the given dropdown menu 
 THEN I am presented with a results page with randomly generated cocktail and curated music video
