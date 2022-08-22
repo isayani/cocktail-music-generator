@@ -1,28 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- links -->
-    <link rel="stylesheet" type="text/css" href="./assets/css/reset.css" />
-    <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Aboreto&family=Lora&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" type="text/css" href="./assets/css/style.css" />
-
-    <title>Mix Result</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Aboreto&family=Lora&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+    <title>Mix & Match Results</title>
   </head>
+
   <body>
-    <header
-      class="flex flex-col items-center justify-center text-white p-12 py-6"
-    >
-      <div
-        class="flex flex-col items-center justify-center text-center md:flex-row py-4 "
-      >
-        <h1 class="italic text-6xl" id="resultsBanner">
+    <header class="flex flex-col items-center justify-center text-white p-12 py-6">
+      <div class="flex flex-col items-center justify-center text-center md:flex-row py-4">
+        <h1 class="italic text-4xl sm:text-5xl md:text-6xl" id="resultsBanner">
           Alcohol & Music
           <!-- change with js based on search results-->
         </h1>
@@ -41,37 +34,27 @@
         </div>
           
         
-        <div
-          class="cream text-darkgreen text-xl my-1 px-3"
-          id="cocktailId"
-        >
+        <div class="cream text-darkgreen text-xl my-1 px-3" id="cocktailId">
           <h2 class="h-20">cocktailID card</h2>
           <!-- cocktail name w/ ingredients added by js -->
         </div>
       </div>
     </main>
 
-   <!-- style="margin-bottom: 20px; margin-top: 20px" 
-    
-  
-  
-  
-  -->
-
     <!-- YouTube Div -->
     <div class="flex flex-col justify-left cream px-6 mt-5">
-      <div class=" justify-left flex flex-col md:flex-row">
+      <div class="justify-left flex flex-col md:flex-row">
         <div class=" flex flex-col md:flex-row content-center my-4 pr-3">
           <div class="flex">
-            <div class="flex flex-row justify-left bg-black my-1 md:content-center md:w-full ">
+            <div class="flex flex-row justify-left bg-black my-1 md:content-center md:w-full">
               <iframe
                 id="iframeYT"
                 src=""
                 title="YouTube video player"
                 frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-              ></iframe>
+                allowfullscreen>
+              </iframe>
             </div>
           </div>
       
@@ -80,45 +63,35 @@
               <h2 id="ytGenre">YouTube Genre</h2>
               <!-- YouTube Video name added by js -->
             </div>
+
             <br>
   
             <div class="cream text-darkgreen text-xl my-1 px-3 ytComps" id="cocktailId">
               <h2 id="ytTitle">YouTube Title</h2>
               <!-- cocktail name w/ ingredients added by js -->
             </div>
-
           </div>
-          
-             
         </div>
       </div>
     </div>
 
     <!-- Button -->
-    
     <div class="flex flex-col items-center justify-center text-white p-12 py-6">
       <!-- new search button -->
       <div class="flex flex-row justify-center content-center mt-2">
-        <button
-          class="mmbutton hover:bg-orange-700 hover:shadow-lg text-white py-2 px-4 rounded max-w-1/2 text-center"
-          id="newSearch"
-        >
+        <button class="mmbutton hover:bg-orange-700 hover:shadow-lg text-white py-2 px-4 rounded max-w-1/2 text-center" id="newSearch">
           MATCH ME A NEW MIX!
         </button>
       </div>
 
       <div class="flex flex-row justify-center content-center mt-5">
-        <button
-          class="mb-2 mmbutton hover:bg-orange-700 hover:shadow-lg text-white py-2 px-20 rounded max-w-1/2 text-center"
-          id="homeBtn"
-        >
+        <button class="mb-2 mmbutton hover:bg-orange-700 hover:shadow-lg text-white py-2 px-20 rounded max-w-1/2 text-center" id="homeBtn">
           HOME
         </button>
       </div>
-
     </div>
     
-
+    <!-- For Future Development -->
     <!-- Recent search results -->
     <!-- <div class="flex flex-col items-center text-white text-xl">
       <br />
@@ -128,9 +101,11 @@
       </div>
     </div> -->
 
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-
+    <!-- JQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Moment.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./assets/js/script.js"></script>
   </body>
