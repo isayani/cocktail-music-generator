@@ -55,7 +55,7 @@ Present project to instructional staff and fellow students.
 
 ## Screenshot
 
-![App gif]()
+![App gif](./assets/images/Mix_and_Match_Demo.gif)
 
 ## Link
 
