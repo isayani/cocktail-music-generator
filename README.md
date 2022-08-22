@@ -1,63 +1,63 @@
 # 07 Project 1: Mix & Match: Cocktail & Music Video Generator
 
-## Concept
+## Description
 
-AS A user <br>
-I WANT a recommendation for a cocktail and curated music video <br>
-SO THAT I can find new, exciting mixed drinks and music without requiring research.
+Mix & Match uses the Cocktail DB and YouTube APIs with Tailwind CSS, Tailwind Elements and Moment.js to create a seamless cocktail and music video pairing for user. When the "Match My Mix" button is clicked, user is presented with an age verification modal. If they are of legal age, they are presented with the next screen, else a denial message is displayed. For users 21+, a drink input box appears in which they can pick their alcohol of choice. Once the drink input 'Match My Mix" button is clicked, user is displayed a results page for their pairing. The results display randomly generated cocktail image and ingredients, paired with a music video in the genre displayed at the top. User's alcohol choice is saved to local storage for future use. User has option to restart by clicking "Home" or seeing a different pair in their alcohol preference by clicking "Match Me a New Mix". 
 
-## User experience
+## User Story
 
-- The user is greeted with a landing page. They then click the "Match My Mix" button to get started.
+```md
+AS A user
+I WANT a recommendation for a cocktail and curated music video
+SO THAT I can find new, exciting mixed drinks and music without requiring research
+```
 
-- A modal appears, asking the user to verify their age. Once that is complete, the user can select a type of alcohol. Click the "Match My Mix" button, and see the results.
+## Acceptance Criteria 
 
-- The results will include an image of the recommended drink, the recipe for creating this concoction, and a video selected as a companion to the user-selection.
+```md
+GIVEN I want a recommendation of cocktail and curated music video  
+WHEN I click the “Mix My Match” button
+THEN I am presented with a modal that asks me to enter my birthday
+WHEN I birthday that is not of legal age (<21)
+THEN I am displayed a message
+WHEN I enter birthday of legal age (21+)
+THEN I am presented with an alcohol input page
+WHEN I select which alcohol type I want from the given dropdown menu 
+THEN I am presented with a results page with randomly generated cocktail and curated music video
+WHEN I click the “Match Me A New Mix” button
+THEN I am presented with a new result for the same input
+WHEN I click the “Home” button 
+THEN I return to the home page and can start over
+```
 
-## Task
+## Technologies Employed
+- HTML
+- CSS
+- JavaScript
+- Mobile First UI
+- DOM Manipulation
+- Local Storage
+- Moment.js
+- Tailwind CSS
+- Tailwind Elements
+- The Cocktail DB API
+- The YouTube Data API
 
-Work with a group of fellow students to create a collaborative project.
-
-## Team challenges
-
-Create user story to describe real-world problem the application will address.
-
-Divide up duties, and share skills and knowledge, lean on team-member strengths.
-
-Present project to instructional staff and fellow students.
-
-## Technologies employed
-
-- Third-party server-side API calls.
-
-- Use modal to prompt user input
-
-- Interactive with user input
-
-- Tailwind CSS framework
-
-- Dynamic DOM manipulation
-
-- Set and get localStorage
-
-- Responsive design
-
-## Future development
+## Future Development
 
 - Enhanced API key security - Abstract details from client
 - Improved music video pairing - Better content selection
-- Adding search results and a clear results button
+- Adding search history and clear history in window
 - Implementing NPM connection for production
 
-## Wireframe
+## Mock-Up
+[Mix & Match Live Link](https://isayani.github.io/cocktail-music-generator/)
+
+The following images shows the web application's appearance and functionality:
 
 ![Mix & Match Wireframe](./assets/images/Mix%20%26%20Match%20Wireframe.png)
 
-## Screenshot
-
 ![App gif](./assets/images/Mix_and_Match_Demo.gif)
 
-## Link
-
-Deployed Application: https://isayani.github.io/cocktail-music-generator/ <br>
-GitHub Repository: https://github.com/isayani/cocktail-music-generator
+- - -
+© 2022 Mix & Match (Insha Sayani, Mac Greene, Bernie Petters, Ashlynn Landry), Confidential and Proprietary. All Rights Reserved.
