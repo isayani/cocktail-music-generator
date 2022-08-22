@@ -15,17 +15,14 @@ function search_drink(alcohol_type) {
     var cocktailImgEl = document.getElementById("imgCard") // cocktail img element to insert content (search.html)
     
     // clear content
-
     cocktailEl.innerHTML = ""
     cocktailImgEl.innerHTML = ""
 
     fetch('https://the-cocktail-db.p.rapidapi.com/filter.php?i=' + alcohol_type, options)
         .then(response => response.json())
         .then(function (response) {
-            console.log(response)
             var rand = Math.floor(Math.random() * response.drinks.length);
             var drink = response.drinks[rand];
-            console.log(drink)
 
             var drink_name = drink.strDrink
             var drink_img = drink.strDrinkThumb;
@@ -38,31 +35,19 @@ function search_drink(alcohol_type) {
             drinkNameEl.textContent = drink_name
             cocktailEl.appendChild(drinkNameEl)
 
-
-            
             var drinkImageEl = document.createElement("img")
             drinkImageEl.setAttribute('src', drink_img)
             drinkImageEl.setAttribute('style','width: 300px;')
             cocktailImgEl.appendChild(drinkImageEl)
-            console.log(drinkImageEl)
-
-          
 
             // lookup ingredients by cocktail id (Not all will have ingredients available)
             fetch('https://the-cocktail-db.p.rapidapi.com/lookup.php?i='+drink_id, options)
                 .then(response => response.json())
                 .then(function(response){
                     var drink_details = response.drinks[0];
-                    console.log(drink_details);
 
                     var drinkDetailLi = document.createElement("ul")
                     drinkDetailLi.setAttribute('style', 'margin-bottom: 20px; margin-top: 20px')
-
-                    // chose to remove "category" from displaying on results 
-                    /* var drinkDetailEl = document.createElement("li")
-                       drinkDetailEl.setAttribute('style', 'text-align: center')
-                       drinkDetailEl.textContent = "Category: " + drink_details.strCategory
-                       drinkDetailLi.appendChild(drinkDetailEl) */ 
 
                     var drinkDetailEl = document.createElement("li")
                     drinkDetailEl.textContent = "Instructions: " + drink_details.strInstructions
@@ -91,41 +76,29 @@ function search_drink(alcohol_type) {
 
 // get youtube video id to insert into html embed
 function search_music(keywords) {
-    //Mac - AIzaSyAjjB7-4pZIVOCDy1P9f8sdttsjhlsAP-k
-    //Insha -AIzaSyDsYfiJwPpAqSyf2KNiU1suyknWvICjtOA
-    var api_key_yt = "AIzaSyAjjB7-4pZIVOCDy1P9f8sdttsjhlsAP-k"
-    var search_params = keywords  // pass keywords as string
+    var api_key_yt = "AIzaSyD_lDxq7TySDBVWOUaG3dZ8KZ7FAQnqbvE"
+    var search_params = keywords 
     var url_yt = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${search_params}&type=video&videoEmbeddable=true&videoSyndicated=true&key=${api_key_yt}`
     fetch(url_yt)
-        .then(response => response.json())
-        .then((data) => {
-            console.log(data)
-            var rand = Math.floor(Math.random() * 4);
-            var videoId = data.items[rand].id.videoId
-            var videoTitle = data.items[rand].snippet.title
-            console.log(videoTitle)
-            console.log(videoId)
+    .then(response => response.json())
+    .then((data) => {
+        var rand = Math.floor(Math.random() * 4);
+        var videoId = data.items[rand].id.videoId
+        var videoTitle = data.items[rand].snippet.title
 
-            // must be in results page to access content elements below
-            var iframeYT = document.getElementById("iframeYT")
-            iframeSrc = "https://www.youtube.com/embed/" + videoId
-            iframeYT.setAttribute('src', iframeSrc)
+        // must be in results page to access content elements below
+        var iframeYT = document.getElementById("iframeYT")
+        iframeSrc = "https://www.youtube.com/embed/" + videoId
+        iframeYT.setAttribute('src', iframeSrc)
 
-            // grab YouTube video title
-            // Ash - AIzaSyD_lDxq7TySDBVWOUaG3dZ8KZ7FAQnqbvE
-            var ytGenreEl = document.getElementById("ytGenre")
-            var ytTitleEl = document.getElementById("ytTitle")
-            // var ytEmbedEl = document.getElementsByClassName("ytp-cued-thumbnail-overlay-image")
-            // ytEmbedEl.setAttribute('style', 'width: 300px; ')
-            // console.log(ytEmbedEl)
+        // grab YouTube video title and genre
+        var ytGenreEl = document.getElementById("ytGenre")
+        var ytTitleEl = document.getElementById("ytTitle")
 
-            ytGenreEl.innerHTML = `${genre}`
-            ytTitleEl.innerHTML = `${videoTitle}`
-            ytGenreEl.setAttribute('style','color: #083637; font-weight: 700; font-size: 30px; font-style: italic; margin-top: 20px;')
-
-
-        })    
-        
+        ytGenreEl.innerHTML = `${genre}`
+        ytTitleEl.innerHTML = `${videoTitle}`
+        ytGenreEl.setAttribute('style','color: #083637; font-weight: 700; font-size: 30px; font-style: italic; margin-top: 20px;')
+    })       
 }
 
 // lookup genre based on alcohol type
@@ -143,8 +116,7 @@ var keywordLookup = {
 }
 
 // listen for button click, execute which html page user is on
-console.log(window.location)
-if (window.location.pathname === "/index.html" || window.location.pathname === "/cocktail-music-generator/" ) {
+if (window.location.pathname === "/index.html" || window.location.pathname === "/cocktail-music-generator/") {
     console.log("on index")
         // Vars for moments and elements
         var today = moment()
@@ -185,11 +157,11 @@ if (window.location.pathname === "/index.html" || window.location.pathname === "
                 } else {
                     document.location.reload()
                 }
-                
             })
         })
 
-    var submitEl = document.getElementById("submit")  // submit button (index.html)
+    // submit button (index.html)
+    var submitEl = document.getElementById("submit")  
 
     submitEl.addEventListener("click", function() {
         // get alcohol type from index.html
@@ -200,15 +172,13 @@ if (window.location.pathname === "/index.html" || window.location.pathname === "
 
         // switch to results
         window.location.assign("./results.html")
+    }) 
 
-    })    
 } else  {
     console.log("on results")
 
     // access local storage
     var alcohol_type_input = localStorage.getItem("session-input")
-    console.log(alcohol_type_input)
-
 
     // lookup genre from object based on alcohol type
     var genre = keywordLookup[alcohol_type_input]
@@ -221,7 +191,6 @@ if (window.location.pathname === "/index.html" || window.location.pathname === "
     // run functions on load
     search_drink(alcohol_type_input)
     search_music(genre + "live music")
-    console.log(genre)
 
     // listen for reload
     var newSearchEl = document.getElementById("newSearch")  // submit button (index.html)
@@ -238,9 +207,10 @@ if (window.location.pathname === "/index.html" || window.location.pathname === "
             window.location.assign("/index.html")
           } else {
             window.location.assign("/cocktail-music-generator/")
-
           }
-
     })   
 }
 
+//Mac - AIzaSyAjjB7-4pZIVOCDy1P9f8sdttsjhlsAP-k
+//Insha - AIzaSyDsYfiJwPpAqSyf2KNiU1suyknWvICjtOA
+//Ash - AIzaSyD_lDxq7TySDBVWOUaG3dZ8KZ7FAQnqbvE
