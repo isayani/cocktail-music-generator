@@ -39,12 +39,14 @@ function search_drink(alcohol_type) {
             cocktailEl.appendChild(drinkNameEl)
 
 
+            
             var drinkImageEl = document.createElement("img")
             drinkImageEl.setAttribute('src', drink_img)
-            drinkImageEl.setAttribute('style', 'items-center')
+            drinkImageEl.setAttribute('style','width: 300px;')
             cocktailImgEl.appendChild(drinkImageEl)
             console.log(drinkImageEl)
 
+          
 
             // lookup ingredients by cocktail id (Not all will have ingredients available)
             fetch('https://the-cocktail-db.p.rapidapi.com/lookup.php?i='+drink_id, options)
@@ -72,7 +74,7 @@ function search_drink(alcohol_type) {
                         if (drink_details[ingredient] !== null){
                             var drinkDetailEl = document.createElement("li")
                             drinkDetailEl.setAttribute('style', 'font-weight: 300; margin-left: 20px; margin-top: 5px; margin-bottom: 5px;')
-                            drinkDetailEl.textContent = "• " + drink_details[ingredient] + ", " + drink_details[measure]
+                            drinkDetailEl.textContent = "• " + drink_details[ingredient] + ": " + drink_details[measure]
                             drinkDetailLi.appendChild(drinkDetailEl)  
                         }
                     }
@@ -82,10 +84,15 @@ function search_drink(alcohol_type) {
                 .catch(err => console.error(err));
                 })
         .catch(err => console.error(err));    
+
+        var fixedImgEl = document.querySelector('.fixedImg')
+        fixedImgEl.setAttribute('style', 'width: 300px;')
 }
 
 // get youtube video id to insert into html embed
 function search_music(keywords) {
+    //Mac - AIzaSyAjjB7-4pZIVOCDy1P9f8sdttsjhlsAP-k
+    //Insha -AIzaSyDsYfiJwPpAqSyf2KNiU1suyknWvICjtOA
     var api_key_yt = "AIzaSyAjjB7-4pZIVOCDy1P9f8sdttsjhlsAP-k"
     var search_params = keywords  // pass keywords as string
     var url_yt = `https://youtube.googleapis.com/youtube/v3/search?part=snippet&q=${search_params}&type=video&videoEmbeddable=true&videoSyndicated=true&key=${api_key_yt}`
@@ -95,13 +102,30 @@ function search_music(keywords) {
             console.log(data)
             var rand = Math.floor(Math.random() * 4);
             var videoId = data.items[rand].id.videoId
+            var videoTitle = data.items[rand].snippet.title
+            console.log(videoTitle)
             console.log(videoId)
 
             // must be in results page to access content elements below
             var iframeYT = document.getElementById("iframeYT")
             iframeSrc = "https://www.youtube.com/embed/" + videoId
             iframeYT.setAttribute('src', iframeSrc)
+
+            // grab YouTube video title
+            // Ash - AIzaSyD_lDxq7TySDBVWOUaG3dZ8KZ7FAQnqbvE
+            var ytGenreEl = document.getElementById("ytGenre")
+            var ytTitleEl = document.getElementById("ytTitle")
+            // var ytEmbedEl = document.getElementsByClassName("ytp-cued-thumbnail-overlay-image")
+            // ytEmbedEl.setAttribute('style', 'width: 300px; ')
+            // console.log(ytEmbedEl)
+
+            ytGenreEl.innerHTML = `${genre}`
+            ytTitleEl.innerHTML = `${videoTitle}`
+            ytGenreEl.setAttribute('style','color: #083637; font-weight: 700; font-size: 30px; font-style: italic; margin-top: 20px;')
+
+
         })    
+        
 }
 
 // lookup genre based on alcohol type
