@@ -38,11 +38,10 @@ h1 #resultsPage {
   color: white;
 }
 
-.border-style {
-  border-color: var(--card-container);
-  border-width: .5rem;
-  background-color: var(--card-container);
+.ytComps {
+  display: inline-block;
 }
+
 
 div button, #verifyBtn {
     background-color: var(--background);
@@ -70,18 +69,5 @@ button:hover , #verifyBtn:hover {
   }
 }
 
-@media screen and (max-width: 767px) {
-  #divider {
-    display: none;
-  }
-
-  #imgCard {
-    margin-top: 0px;
-  }
-
-  .iFrame {
-    margin-top: 20px;
-  }
-}
 
 
